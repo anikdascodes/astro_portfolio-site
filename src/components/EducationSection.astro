@@ -1,0 +1,119 @@
+---
+const education = [
+  {
+    degree: "B.Sc. in Data Science (5th Semester)",
+    institution: "Calcutta Institute of Science and Management",
+    affiliation: "Maulana Abul Kalam Azad University of Technology, West Bengal",
+    year: "2022 – Present",
+    details: [
+      "Programming: Advanced Python, Data Structures, Web Intelligence, Programming Foundations.",
+      "Data Analysis: Data Visualization (Power BI), SPSS, Data Warehousing, Regression Analysis.",
+      "Statistics: Probability, Linear Algebra, Time Series Analysis, Generalized Linear Models.",
+      "Data Science: Databases (DBMS), Data Mining, AI & Machine Learning.",
+    ],
+    icon: "graduation-cap",
+  },
+  {
+    degree: "Higher Secondary Education (Science Stream)",
+    institution: "Gournagar High School",
+    board: "West Bengal Council of Higher Secondary Education (WBCHSE)",
+    year: "2022",
+    details: ["Key subjects: Mathematics, Physics, Chemistry."],
+    icon: "school",
+  },
+  {
+    degree: "Secondary Education",
+    institution: "Gournagar High School",
+    board: "West Bengal Board of Secondary Education (WBBSE)",
+    year: "2020",
+    details: [],
+    icon: "book",
+  },
+];
+---
+
+<section class="py-16 bg-gray-50 dark:bg-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-4xl font-bold text-gray-900 dark:text-white text-center mb-12">Education</h2>
+    
+    <div class="relative">
+      <!-- Timeline line -->
+      <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-200 dark:bg-gray-700"></div>
+      
+      <div class="space-y-12">
+        {education.map((entry, index) => (
+          <div class="relative">
+            <!-- Timeline dot -->
+            <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 -translate-y-4 w-4 h-4 rounded-full bg-primary border-4 border-white dark:border-gray-800"></div>
+            
+            <!-- Content -->
+            <div class={`md:grid md:grid-cols-2 gap-8 ${index % 2 === 0 ? '' : 'md:[&>div]:col-start-2'}`}>
+              <div class={`bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 ${index % 2 === 0 ? 'md:text-right' : ''} transform transition-all duration-300 hover:scale-105 hover:shadow-lg`}>
+                <div class="flex items-center gap-2 mb-2 text-primary">
+                  {entry.icon === "graduation-cap" && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class={`w-6 h-6 ${index % 2 === 0 ? 'md:order-last' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+                    </svg>
+                  )}
+                  {entry.icon === "school" && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class={`w-6 h-6 ${index % 2 === 0 ? 'md:order-last' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+                    </svg>
+                  )}
+                  {entry.icon === "book" && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class={`w-6 h-6 ${index % 2 === 0 ? 'md:order-last' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                    </svg>
+                  )}
+                  <span class="font-semibold">{entry.year}</span>
+                </div>
+                
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{entry.degree}</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-1">{entry.institution}</p>
+                {entry.affiliation && (
+                  <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">{entry.affiliation}</p>
+                )}
+                {entry.board && (
+                  <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">{entry.board}</p>
+                )}
+                
+                {entry.details.length > 0 && (
+                  <ul class={`text-sm text-gray-600 dark:text-gray-300 space-y-1 ${index % 2 === 0 ? 'md:list-none' : 'list-disc pl-4'}`}>
+                    {entry.details.map((detail) => (
+                      <li>{detail}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .education-entry {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .education-entry {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>

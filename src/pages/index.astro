@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Anik Das - Aspiring Data Scientist">
+  <section class="min-h-[calc(100vh-4rem)] flex items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white">
+            Hello, I'm Anik Das.
+          </h1>
+          <h2 class="text-xl sm:text-2xl text-primary font-semibold">
+            Aspiring Data Scientist | Python & SQL Enthusiast
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400 text-lg">
+            Passionate about transforming data into actionable insights. Skilled in Python, SQL, and data analysis tools,
+            I'm on a journey to solve complex problems through data-driven approaches.
+          </p>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="/anik-resume.pdf"
+            class="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/80 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Resume
+          </a>
+          <a
+            href="/anik-resume.pdf"
+            class="inline-flex justify-center items-center px-6 py-3 border border-primary text-base font-medium rounded-md text-primary hover:bg-primary/10 transition-colors"
+            download="anik-resume.pdf"
+          >
+            Download Resume
+          </a>
+          <a
+            href="/contact"
+            class="inline-flex justify-center items-center px-6 py-3 border border-primary text-base font-medium rounded-md text-primary hover:bg-primary/10 transition-colors"
+          >
+            Contact Me
+          </a>
+        </div>
+      </div>
+
+      <div class="relative aspect-square max-w-md mx-auto">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full"></div>
+        <img
+          src="/profile.jpg"
+          alt="Anik Das"
+          class="relative z-10 rounded-full object-cover w-full h-full border-4 border-white dark:border-gray-800 shadow-lg"
+        />
+      </div>
+    </div>
+  </section>
+  
+</Layout>
+
+<style>
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+</style>

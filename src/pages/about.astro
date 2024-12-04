@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import EducationSection from '../components/EducationSection.astro';
+
+const skills = {
+  Programming: ['Python', 'SQL', 'R'],
+  Tools: ['Power BI', 'SPSS', 'Excel', 'Jupyter Notebooks'],
+  Mathematics: ['Linear Algebra', 'Statistics', 'Probability', 'Calculus'],
+  'Data Science': ['Machine Learning', 'Data Analysis', 'Data Visualization', 'Statistical Modeling'],
+  'Soft Skills': ['Problem Solving', 'Team Collaboration', 'Communication', 'Critical Thinking']
+};
+---
+
+<Layout title="About Me - Anik Das">
+  <main class="container mx-auto px-4 py-8">
+    <!-- About Me Section -->
+    <section class="mb-16">
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-8">About Me</h1>
+      <div class="prose dark:prose-invert max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+          I am an aspiring Data Scientist with a passion for transforming data into actionable insights. Currently pursuing my B.Sc. in Data Science, 
+          I combine strong analytical skills with programming expertise to solve complex problems and uncover meaningful patterns in data.
+        </p>
+        <p class="text-lg text-gray-700 dark:text-gray-300">
+          My journey in data science is driven by curiosity and a desire to make a positive impact through data-driven decision making. 
+          I'm particularly interested in machine learning, statistical analysis, and data visualization.
+        </p>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <EducationSection />
+
+    <!-- Skills Section -->
+    <section class="mt-16">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Skills & Expertise</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {Object.entries(skills).map(([category, skillList]) => (
+          <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">{category}</h3>
+            <ul class="space-y-2">
+              {skillList.map((skill) => (
+                <li class="flex items-center text-gray-700 dark:text-gray-300">
+                  <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

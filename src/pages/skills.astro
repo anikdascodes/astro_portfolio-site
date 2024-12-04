@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const skillCategories = [
+  {
+    name: 'Programming',
+    skills: [
+      { name: 'Python', level: 'Advanced', icon: '🐍' },
+      { name: 'SQL', level: 'Advanced', icon: '📊' },
+      { name: 'R', level: 'Intermediate', icon: '📈' },
+    ],
+  },
+  {
+    name: 'Data Analysis Tools',
+    skills: [
+      { name: 'Power BI', level: 'Advanced', icon: '📊' },
+      { name: 'SPSS', level: 'Intermediate', icon: '📉' },
+      { name: 'Excel', level: 'Advanced', icon: '📑' },
+      { name: 'Jupyter Notebooks', level: 'Advanced', icon: '📓' },
+    ],
+  },
+  {
+    name: 'Mathematics & Statistics',
+    skills: [
+      { name: 'Linear Algebra', level: 'Advanced', icon: '📐' },
+      { name: 'Probability', level: 'Advanced', icon: '🎲' },
+      { name: 'Statistics', level: 'Advanced', icon: '📊' },
+      { name: 'Calculus', level: 'Intermediate', icon: '∫' },
+    ],
+  },
+];
+
+const levelColors = {
+  Beginner: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300',
+  Intermediate: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300',
+  Advanced: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300',
+};
+---
+
+<Layout title="Skills - Anik Das">
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-8">Skills</h1>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {skillCategories.map((category) => (
+          <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">{category.name}</h2>
+            <div class="space-y-4">
+              {category.skills.map((skill) => (
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <span class="text-2xl" role="img" aria-label={skill.name}>{skill.icon}</span>
+                    <span class="text-gray-900 dark:text-white font-medium">{skill.name}</span>
+                  </div>
+                  <span class={`px-2 py-1 text-xs font-medium rounded-full ${levelColors[skill.level]}`}>
+                    {skill.level}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Skill Levels Explained</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="flex items-center space-x-2">
+            <span class={`w-3 h-3 rounded-full ${levelColors.Beginner.split(' ')[0]}`}></span>
+            <span class="text-gray-600 dark:text-gray-400">Beginner: Basic understanding</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class={`w-3 h-3 rounded-full ${levelColors.Intermediate.split(' ')[0]}`}></span>
+            <span class="text-gray-600 dark:text-gray-400">Intermediate: Practical experience</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class={`w-3 h-3 rounded-full ${levelColors.Advanced.split(' ')[0]}`}></span>
+            <span class="text-gray-600 dark:text-gray-400">Advanced: Extensive knowledge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
